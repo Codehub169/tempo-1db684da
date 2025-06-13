@@ -1,1 +1,145 @@
-@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n:root {\n  --nav-height: 80px; /* Default, can be overridden by JS if needed earlier */\n  /* Conceptual color mapping (to be defined in tailwind.config.js):\n     brand-beige: #F5F5DC (plan) or #F8F5F2 (sample)\n     brand-text-primary: #2C2A28 (sample)\n     brand-neutral: #BFBDBA (sample)\n     brand-coral: #FF6B6B (plan)\n     brand-teal: #005F60 (plan)\n     brand-yellow: #FFD166 (plan)\n     brand-accent-light: #F9EBE5 (sample, if needed for coral's light version)\n     brand-stroke: rgba(0,0,0,0.08); (Example for borders like contact form)\n     brand-beige-light: #FAF7F5; (Example for hover states)\n  */\n}\n\nhtml {\n  scroll-behavior: smooth;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  scroll-padding-top: var(--nav-height); /* Ensures section starts below fixed nav */\n}\n\nbody {\n  @apply font-inter bg-brand-beige text-brand-text-primary text-base leading-relaxed font-light;\n  /* Example: font-inter bg-[#F5F5DC] text-[#2C2A28] ... */\n}\n\n/* General container utility (matches Tailwind's max-w-7xl with standard padding) */\n.container-custom {\n  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;\n}\n\n/* Animation utilities */\n.animate-on-scroll {\n  opacity: 0;\n  transform: translateY(40px);\n  transition: opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);\n}\n\n.animate-on-scroll.is-visible {\n  opacity: 1;\n  transform: translateY(0);\n}\n\n/* Custom underline for nav links */\n.nav-link-underline::after {\n  content: '';\n  position: absolute;\n  bottom: -2px; /* Adjusted for better visual */\n  left: 0;\n  width: 100%;\n  height: 1.5px; /* Slightly thicker */\n  background-color: theme('colors.brand-coral'); /* Using brand-coral from plan as an accent */\n  transform: scaleX(0);\n  transform-origin: center;\n  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);\n}\n\n.nav-link-underline:hover::after,\n.nav-link-underline.is-active::after {\n  transform: scaleX(1);\n}\n\n/* Keyframes for logo reveal animation (HeroSection) */\n@keyframes logoReveal {\n  0% {\n    opacity: 0;\n    transform: translateY(12px);\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n.animate-logoReveal {\n  animation: logoReveal 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;\n}\n\n/* Keyframes for scroll down indicator animation (ScrollIndicator) */\n@keyframes scrollDownIndicator {\n  0% {\n    opacity: 0;\n    transform: translate(-50%, -4px);\n  }\n  50% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n    transform: translate(-50%, 12px);\n  }\n}\n\n.animate-scrollDownIndicator {\n  animation: scrollDownIndicator 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n/* General Fade-in animation */\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n.animate-fadeIn {\n  animation: fadeIn 0.8s ease-in-out forwards;\n}\n\n/* Animation delay utility classes (if not using Tailwind JIT classes like animation-delay-[1.5s]) */\n.animation-delay-\\[1s\\] { animation-delay: 1s; }\n.animation-delay-\\[1\\.2s\\] { animation-delay: 1.2s; }\n.animation-delay-\\[1500ms\\] { animation-delay: 1500ms; }\n.animation-delay-\\[0\\.2s\\] { animation-delay: 0.2s; }\n.animation-delay-\\[0\\.4s\\] { animation-delay: 0.4s; }\n\n\n/* Hover underline for contact section social link */\n.hover-underline-coral::after {\n  content: '';\n  position: absolute;\n  bottom: -2px;\n  left: 0;\n  width: 100%;\n  height: 2px;\n  background-color: theme('colors.brand-coral');\n  transform: scaleX(0);\n  transform-origin: right;\n  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);\n}\n.hover-underline-coral:hover::after {\n  transform: scaleX(1);\n  transform-origin: left;\n}\n\n/* Shadow for Contact Form */\n.shadow-subtle {\n box-shadow: 0 4px 15px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03);\n}\n
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nav-height: 80px; /* Default, can be overridden by JS if needed earlier */
+  /* Conceptual color mapping (to be defined in tailwind.config.js):
+     brand-beige: #F5F5DC (plan) or #F8F5F2 (sample)
+     brand-text-primary: #2C2A28 (sample)
+     brand-neutral: #BFBDBA (sample)
+     brand-coral: #FF6B6B (plan)
+     brand-teal: #005F60 (plan)
+     brand-yellow: #FFD166 (plan)
+     brand-accent-light: #F9EBE5 (sample, if needed for coral's light version)
+     brand-stroke: rgba(0,0,0,0.08); (Example for borders like contact form)
+     brand-beige-light: #FAF7F5; (Example for hover states)
+  */
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: var(--nav-height); /* Ensures section starts below fixed nav */
+}
+
+body {
+  @apply font-inter bg-brand-beige text-brand-text-primary text-base leading-relaxed font-light;
+  /* Example: font-inter bg-[#F5F5DC] text-[#2C2A28] ... */
+}
+
+/* General container utility (matches Tailwind's max-w-7xl with standard padding) */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Animation utilities */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom underline for nav links */
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Adjusted for better visual */
+  left: 0;
+  width: 100%;
+  height: 1.5px; /* Slightly thicker */
+  background-color: theme('colors.brand-coral'); /* Using brand-coral from plan as an accent */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Keyframes for logo reveal animation (HeroSection) */
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-logoReveal {
+  animation: logoReveal 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* Keyframes for scroll down indicator animation (ScrollIndicator) */
+@keyframes scrollDownIndicator {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -4px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+}
+
+.animate-scrollDownIndicator {
+  animation: scrollDownIndicator 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* General Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+/* Animation delay utility classes (if not using Tailwind JIT classes like animation-delay-[1.5s]) */
+.animation-delay-\\[1s\\] { animation-delay: 1s; }
+.animation-delay-\\[1\\.2s\\] { animation-delay: 1.2s; }
+.animation-delay-\\[1500ms\\] { animation-delay: 1500ms; }
+.animation-delay-\\[0\\.2s\\] { animation-delay: 0.2s; }
+.animation-delay-\\[0\\.4s\\] { animation-delay: 0.4s; }
+
+
+/* Hover underline for contact section social link */
+.hover-underline-coral::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: theme('colors.brand-coral');
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.hover-underline-coral:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Shadow for Contact Form */
+.shadow-subtle {
+ box-shadow: 0 4px 15px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03);
+}
