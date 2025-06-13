@@ -26,11 +26,11 @@ const HeroSection = forwardRef((props, ref) => {
           ))}
         </h1>
         {/* Tagline */}
-        <p className="font-inter text-brand-text-primary text-[clamp(1.125rem,3vw,1.625rem)] leading-snug font-normal opacity-0 animate-fadeIn animation-delay-\[1s\] max-w-md mx-auto">
+        <p className="font-inter text-brand-text-primary text-[clamp(1.125rem,3vw,1.625rem)] leading-snug font-normal opacity-0 animate-fadeIn animation-delay-1000 max-w-md mx-auto">
           Where stories find their aesthetic.
         </p>
         {/* Subtext (optional, can be added if needed based on final copy) */}
-        {/* <p className="font-inter text-brand-neutral text-base mt-3 opacity-0 animate-fadeIn animation-delay-\[1.2s\]">
+        {/* <p className="font-inter text-brand-neutral text-base mt-3 opacity-0 animate-fadeIn animation-delay-1200">
           Designs that whisper loud stories.
         </p> */}
       </div>

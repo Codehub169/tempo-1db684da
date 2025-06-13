@@ -24,7 +24,7 @@ const AboutUsSection = forwardRef((props, ref) => {
           </div>
         </div>
         {/* Image part */}
-        <div className="about__image-wrapper h-[380px] md:h-[480px] lg:h-[520px] rounded-2xl overflow-hidden shadow-xl animate-on-scroll animation-delay-\[0\.2s\] group">
+        <div className="about__image-wrapper h-[380px] md:h-[480px] lg:h-[520px] rounded-2xl overflow-hidden shadow-xl animate-on-scroll animation-delay-200 group">
           <img 
             src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" // Placeholder for studio/team image
             alt="The hueneu studio team or a creative workspace" 

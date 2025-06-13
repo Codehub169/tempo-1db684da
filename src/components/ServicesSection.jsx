@@ -18,14 +18,14 @@ const servicesData = [
     title: 'Packaging Design',
     copy: 'Crafting tangible experiences that tell your brand\u2019s story on shelves.',
     icon: <PackageIcon className="w-full h-full" />,
-    image: 'https://images.unsplash.com/photo-1604147706283-d7119b5b822c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Minimal texture background
+    image: 'https://images.unsplash.com/photo-1586455120202-b5b882065870?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Example: Boxes/packaging
   },
   {
     id: 'social-media',
     title: 'Social Media Curation',
     copy: 'Designing digital narratives that resonate and build community.',
     icon: <DevicePhoneMobileIcon className="w-full h-full" />,
-    image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Abstract connection/network
+    image: 'https://images.unsplash.com/photo-1611162617213-7d724e873885?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Example: Social media mockups
   },
   {
     id: 'print-editorial',
@@ -71,7 +71,7 @@ const ServicesSection = forwardRef((props, ref) => {
         {/* Services layout: list and preview image */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-start">
           {/* Services list */}
-          <div className="flex flex-col gap-5 animate-on-scroll animation-delay-\[0\.2s\]">
+          <div className="flex flex-col gap-5 animate-on-scroll animation-delay-200">
             {servicesData.map((service) => (
               <ServiceItem
                 key={service.id}
@@ -85,7 +85,7 @@ const ServicesSection = forwardRef((props, ref) => {
           </div>
 
           {/* Services preview image */}
-          <div className="services__preview sticky top-[calc(var(--nav-height)_+_40px)] h-[350px] sm:h-[450px] md:h-[550px] rounded-2xl overflow-hidden shadow-xl animate-on-scroll animation-delay-\[0\.4s\]">
+          <div className="services__preview sticky top-[calc(var(--nav-height)_+_40px)] h-[350px] sm:h-[450px] md:h-[550px] rounded-2xl overflow-hidden shadow-xl animate-on-scroll animation-delay-400">
             <img 
               key={imageKey} // Use key to re-trigger animation on image change
               src={previewImage}

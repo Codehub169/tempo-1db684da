@@ -27,7 +27,7 @@ const ContactSection = forwardRef((props, ref) => {
         </div>
 
         {/* Form wrapper part */}
-        <div className="contact__form-wrapper flex-1 w-full max-w-2xl bg-white p-8 sm:p-10 md:p-12 rounded-2xl shadow-subtle border border-brand-stroke animate-on-scroll animation-delay-\[0\.2s\]">
+        <div className="contact__form-wrapper flex-1 w-full max-w-2xl bg-white p-8 sm:p-10 md:p-12 rounded-2xl shadow-subtle border border-brand-stroke animate-on-scroll animation-delay-200">
           <ContactForm />
         </div>
       </div>

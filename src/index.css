@@ -113,12 +113,12 @@ body {
   animation: fadeIn 0.8s ease-in-out forwards;
 }
 
-/* Animation delay utility classes (if not using Tailwind JIT classes like animation-delay-[1.5s]) */
-.animation-delay-\\[1s\\] { animation-delay: 1s; }
-.animation-delay-\\[1\\.2s\\] { animation-delay: 1.2s; }
-.animation-delay-\\[1500ms\\] { animation-delay: 1500ms; }
-.animation-delay-\\[0\\.2s\\] { animation-delay: 0.2s; }
-.animation-delay-\\[0\\.4s\\] { animation-delay: 0.4s; }
+/* Animation delay utility classes */
+.animation-delay-1000 { animation-delay: 1s; }
+.animation-delay-1200 { animation-delay: 1.2s; }
+.animation-delay-1500 { animation-delay: 1500ms; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
 
 
 /* Hover underline for contact section social link */
