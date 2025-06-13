@@ -11,28 +11,28 @@ const servicesData = [
     title: 'Branding & Identity',
     copy: 'Giving your story a soul, a voice, and a memorable face.',
     icon: <SparklesIcon className="w-full h-full" />,
-    image: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Abstract color gradient
+    image: 'https://images.unsplash.com/photo-1558368141-55f41aa4d75d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // New: logo design process, sketches
   },
   {
     id: 'packaging',
     title: 'Packaging Design',
     copy: 'Crafting tangible experiences that tell your brand\u2019s story on shelves.',
     icon: <PackageIcon className="w-full h-full" />,
-    image: 'https://images.unsplash.com/photo-1586455120202-b5b882065870?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Example: Boxes/packaging
+    image: 'https://images.unsplash.com/photo-1599056037042-600350bd70b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // New: coffee bag packaging
   },
   {
     id: 'social-media',
     title: 'Social Media Curation',
     copy: 'Designing digital narratives that resonate and build community.',
     icon: <DevicePhoneMobileIcon className="w-full h-full" />,
-    image: 'https://images.unsplash.com/photo-1611162617213-7d724e873885?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Example: Social media mockups
+    image: 'https://images.unsplash.com/photo-1516970080063-27838e09848c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // New: Flatlay of phone with curated content
   },
   {
     id: 'print-editorial',
     title: 'Print & Editorial',
     copy: 'Turning narratives into treasured objects, from books to brochures.',
     icon: <BookOpenIcon className="w-full h-full" />,
-    image: 'https://images.unsplash.com/photo-1456325504446-381272441165?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Elegant paper texture or book
+    image: 'https://images.unsplash.com/photo-1519680000207-1d7005de08e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // New: Close up of magazine pages
   },
 ];
 
