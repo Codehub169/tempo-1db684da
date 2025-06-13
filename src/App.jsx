@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import StorySection from './components/StorySection';
+import StorySection from './components/StorySection'; // Will now resolve
 import ServicesSection from './components/ServicesSection';
-import WhyHueneuSection from './components/WhyHueneuSection';
+import WhyHueneuSection from './components/WhyHueneuSection'; // Will now resolve
 import AboutUsSection from './components/AboutUsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 // Placeholder components for sections if their dedicated files are not fully implemented or available.
-// These are basic functional components accepting id and ref.
+// This can be kept for other sections or as a fallback, but StorySection and WhyHueneuSection will now be imported.
 const PlaceholderSection = React.forwardRef(({ id, title = "Section Title" }, ref) => (
   <section 
     id={id} 
@@ -72,7 +72,9 @@ const App = () => {
 
   // Effect for Navbar visibility and active section highlighting
   useEffect(() => {
-    const currentNavHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height').replace('px', '')) || 80;
+    const rootStyle = getComputedStyle(document.documentElement);
+    const navHeightValue = rootStyle.getPropertyValue('--nav-height').replace('px', '');
+    const currentNavHeight = parseInt(navHeightValue) || 80;
     setNavHeight(currentNavHeight);
 
     const handleScroll = () => {
@@ -91,7 +93,7 @@ const App = () => {
       let currentSectionId = 'home';
       // Check hero section first
       if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight - currentNavHeight;
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight - navHeight; // Use state navHeight
          if (scrollPosition < heroBottom * 0.8) { // Give hero more space for active state
             currentSectionId = 'home';
         } else {
@@ -99,7 +101,7 @@ const App = () => {
             for (const item of navItems) {
                 const section = sectionRefs[item.id].current;
                 if (section) {
-                    const sectionTop = section.offsetTop - currentNavHeight - 1; // 1px buffer
+                    const sectionTop = section.offsetTop - navHeight - 1; // 1px buffer, use state navHeight
                     const sectionBottom = sectionTop + section.offsetHeight;
             
                     if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
@@ -118,9 +120,11 @@ const App = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navItems]); // navItems is stable, sectionRefs themselves are stable. Adding eslint-disable for sectionRefs if it complains, but generally refs in dep array is fine if they don't change.
+  }, [navItems]); // navItems is stable. sectionRefs are stable. navHeight state is used in handler via closure.
 
-  // Determine which component to render for sections that might be placeholders
+  // Determine which component to render. Since StorySection and WhyHueneuSection now exist,
+  // the || fallback to PlaceholderSection might not be strictly necessary if they always export a valid component.
+  // However, keeping it makes it robust if those components were to be temporarily unavailable or export null.
   const CurrentStorySection = StorySection || (props => <PlaceholderSection {...props} title="The hueneu Story"/>);
   const CurrentWhyHueneuSection = WhyHueneuSection || (props => <PlaceholderSection {...props} title="Why hueneu?"/>);
 
