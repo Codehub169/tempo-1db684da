@@ -3,15 +3,14 @@ import React from 'react';
 const ScrollIndicator = () => {
   return (
     <a 
-      href="#story" 
-      aria-label="Scroll down to story section"
-      className="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 w-6 h-10 border-2 border-brand-neutral rounded-full opacity-0 animate-fadeIn animation-delay-[1500ms] group"
+      href="#story" // Make sure a section with id "story" exists
+      aria-label="Scroll down to next section"
+      className="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 w-7 h-11 border-2 border-brand-neutral/70 rounded-full opacity-0 animate-fadeIn animation-delay-\[1500ms\] group transition-opacity hover:opacity-80"
     >
       <span 
-        className="absolute top-2 left-1/2 -translate-x-1/2 w-1 h-2 bg-brand-neutral rounded-sm animate-scrollDownIndicator group-hover:animate-none"
-        // The `animate-scrollDownIndicator` should be defined in tailwind.config.js or index.css
-        // Example: 'scrollDownIndicator': 'scrollDown 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1)'
-        // Keyframes for scrollDown: 0% { opacity: 0; transform: translate(-50%, -4px); } 50% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, 12px); }
+        className="absolute top-2.5 left-1/2 -translate-x-1/2 w-1 h-2.5 bg-brand-neutral/70 rounded-sm animate-scrollDownIndicator group-hover:animate-none"
+        // The animate-scrollDownIndicator class should be defined in src/index.css
+        // Its keyframes should handle the vertical movement and opacity changes.
       ></span>
     </a>
   );

@@ -1,38 +1,40 @@
 import React from 'react';
+import { forwardRef } from 'react';
 
-const AboutUsSection = React.forwardRef((props, ref) => {
+const AboutUsSection = forwardRef((props, ref) => {
   return (
-    <section id="about" ref={ref} className="about bg-white py-20 md:py-36 animate-on-scroll">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div className="about__content animate-on-scroll">
-            <h3 className="text-sm font-medium text-brand-neutral tracking-widest uppercase mb-4 font-poppins">
-              The Studio
-            </h3>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-brand-text-primary mb-8 font-poppins">
-              Behind the Name
-            </h2>
-            <p className="text-brand-text-secondary text-base md:text-lg leading-relaxed mb-6 font-inter max-w-xl">
-              hueneu was founded on a quiet belief: that the most powerful stories are told in the space between the vibrant and the serene. We are a small team of designers and storytellers who find joy in the details—the texture of paper, the perfect color pairing, the rhythm of a layout.
+    <section ref={ref} id={props.id || "about"} className="about bg-white py-20 md:py-32 px-6">
+      <div className="container-custom mx-auto grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
+        {/* Content part */}
+        <div className="about__content animate-on-scroll">
+          <h3 className="font-poppins text-brand-coral text-sm font-semibold mb-3 tracking-wider uppercase">
+            The Studio
+          </h3>
+          <h2 className="font-poppins text-brand-text-primary text-[clamp(2rem,5vw,3rem)] mb-6 md:mb-8 leading-tight">
+            Quietly Bold, Subtly Playful.
+          </h2>
+          <div className="space-y-5 font-inter text-brand-text-secondary text-lg leading-relaxed">
+            <p>
+              hueneu was founded on a quiet belief: that the most powerful stories are told in the space between the vibrant and the serene. We are a small team of designers and storytellers who find joy in the details 
+              	othe texture of paper, the perfect color pairing, the rhythm of a layout.
             </p>
-            <p className="text-brand-text-secondary text-base md:text-lg leading-relaxed font-inter max-w-xl">
-              Our approach is personal and collaborative. We see ourselves as partners in bringing your vision to life, ensuring every element feels intentional, balanced, and truly yours.
+            <p>
+              Our approach is personal and collaborative. We see ourselves as partners in bringing your vision to life, ensuring every element feels intentional, balanced, and truly yours. We champion calm mystery and subtle playfulness in all we do.
             </p>
           </div>
-          <div className="about__image-wrapper h-[400px] md:h-[500px] rounded-2xl overflow-hidden animate-on-scroll delay-200">
-            <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-              alt="The hueneu studio team" 
-              className="about__image w-full h-full object-cover scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.165,0.84,0.44,1)]"
-            />
-            {/* The parent 'animate-on-scroll' combined with an 'is-visible' class (added by App.jsx's IntersectionObserver) 
-                will trigger the image scale animation by overriding scale-105 to scale-100, 
-                assuming .is-visible .about__image { transform: scale(1); } is defined or handled by the observer logic. */}
-          </div>
+        </div>
+        {/* Image part */}
+        <div className="about__image-wrapper h-[380px] md:h-[480px] lg:h-[520px] rounded-2xl overflow-hidden shadow-xl animate-on-scroll animation-delay-\[0\.2s\] group">
+          <img 
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" // Placeholder for studio/team image
+            alt="The hueneu studio team or a creative workspace" 
+            className="w-full h-full object-cover scale-105 transition-transform duration-[1200ms] ease-out group-[.is-visible]:scale-100"
+          />
         </div>
       </div>
     </section>
   );
 });
 
+AboutUsSection.displayName = 'AboutUsSection';
 export default AboutUsSection;
