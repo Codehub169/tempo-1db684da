@@ -90,7 +90,7 @@ const ServicesSection = forwardRef((props, ref) => {
               key={imageKey} // Use key to re-trigger animation on image change
               src={previewImage}
               alt={`${servicesData.find(s=>s.id === activeServiceId)?.title} preview`} 
-              className="w-full h-full object-cover animate-fadeIn duration-500 ease-in-out"
+              className="w-full h-full object-cover animate-fadeInZoomIn hover:scale-105 transition-transform duration-300 ease-out"
             />
           </div>
         </div>

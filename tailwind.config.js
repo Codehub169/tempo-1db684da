@@ -28,6 +28,7 @@ export default {
         fadeIn: 'fadeIn 0.8s ease-in-out forwards',
         logoReveal: 'logoReveal 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards',
         scrollDownIndicator: 'scrollDownIndicator 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1)',
+        fadeInZoomIn: 'fadeInZoomIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
       },
       keyframes: {
         fadeIn: {
@@ -42,6 +43,10 @@ export default {
           '0%': { opacity: '0', transform: 'translate(-50%, -4px)' },
           '50%': { opacity: '1' },
           '100%': { opacity: '0', transform: 'translate(-50%, 12px)' },
+        },
+        fadeInZoomIn: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
         },
       },
     },
