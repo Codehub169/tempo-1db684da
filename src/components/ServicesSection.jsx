@@ -1,12 +1,9 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import ServiceItem from './ServiceItem';
-
-// Placeholder Icons - replace with actual SVG imports or components
-const PlaceholderIcon = ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>;
-const SparklesIcon = PlaceholderIcon; // Replace with actual import: import SparklesIcon from '../assets/icons/SparklesIcon';
-const PackageIcon = PlaceholderIcon; // Replace with actual import: import PackageIcon from '../assets/icons/PackageIcon';
-const DevicePhoneMobileIcon = PlaceholderIcon; // Replace with actual import: import DevicePhoneMobileIcon from '../assets/icons/DevicePhoneMobileIcon';
-const BookOpenIcon = PlaceholderIcon; // Replace with actual import: import BookOpenIcon from '../assets/icons/BookOpenIcon';
+import SparklesIcon from '../assets/icons/SparklesIcon';
+import PackageIcon from '../assets/icons/PackageIcon';
+import DevicePhoneMobileIcon from '../assets/icons/DevicePhoneMobileIcon';
+import BookOpenIcon from '../assets/icons/BookOpenIcon';
 
 const servicesData = [
   {
@@ -19,7 +16,7 @@ const servicesData = [
   {
     id: 'packaging',
     title: 'Packaging Design',
-    copy: 'Crafting tangible experiences that tell your brand’s story on shelves.',
+    copy: 'Crafting tangible experiences that tell your brand\u2019s story on shelves.',
     icon: <PackageIcon className="w-full h-full" />,
     image: 'https://images.unsplash.com/photo-1604147706283-d7119b5b822c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Minimal texture background
   },
@@ -55,6 +52,7 @@ const ServicesSection = forwardRef((props, ref) => {
         setImageKey(prevKey => prevKey + 1); // Change key to trigger animation
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeServiceId]); // Removed previewImage from dependencies to avoid loop with key change
 
   return (
