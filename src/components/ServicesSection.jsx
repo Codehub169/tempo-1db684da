@@ -53,7 +53,7 @@ const ServicesSection = forwardRef((props, ref) => {
       img.onerror = () => {
         console.error(`[ServicesSection] Failed to preload image: ${activeService.image}. The previous image may be retained or it might appear broken if this was an initial load failure.`);
         // Optionally, you could set a fallback placeholder image here:
-        // setPreviewImage(\'/path/to/placeholder-image.jpg\');
+        // setPreviewImage(\\'/path/to/placeholder-image.jpg\');
         // setImageKey(prevKey => prevKey + 1);
       };
     }
