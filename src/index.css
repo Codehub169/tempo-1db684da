@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nav-height: 80px; /* Default, can be overridden by JS if needed earlier */
+  /* Conceptual color mapping (to be defined in tailwind.config.js):
+     brand-beige: #F5F5DC (plan) or #F8F5F2 (sample)
+     brand-text-primary: #2C2A28 (sample)
+     brand-neutral: #BFBDBA (sample)
+     brand-coral: #FF6B6B (plan)
+     brand-teal: #005F60 (plan)
+     brand-yellow: #FFD166 (plan)
+     brand-accent-light: #F9EBE5 (sample, if needed for coral's light version)
+  */
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  @apply font-inter bg-brand-beige text-brand-text-primary text-base leading-relaxed font-light;
+  /* Example: font-inter bg-[#F5F5DC] text-[#2C2A28] ... */
+}
+
+/* General container utility (matches Tailwind's max-w-7xl with standard padding) */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Animation utilities from sample */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom underline for nav links (from sample) */
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Adjusted for better visual */
+  left: 0;
+  width: 100%;
+  height: 1.5px; /* Slightly thicker */
+  background-color: theme('colors.brand-coral'); /* Using brand-coral from plan as an accent */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Placeholder for dark mode if it's added later */
+/* .dark body {
+  @apply bg-brand-text-primary text-brand-beige;
+} */
