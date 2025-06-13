@@ -44,16 +44,20 @@ const ServicesSection = forwardRef((props, ref) => {
   useEffect(() => {
     const activeService = servicesData.find(s => s.id === activeServiceId);
     if (activeService && previewImage !== activeService.image) {
-      // Preload image for smoother transition (optional, basic version just sets it)
       const img = new Image();
       img.src = activeService.image;
       img.onload = () => {
         setPreviewImage(activeService.image);
         setImageKey(prevKey => prevKey + 1); // Change key to trigger animation
       };
+      img.onerror = () => {
+        console.error(`[ServicesSection] Failed to preload image: ${activeService.image}. The previous image may be retained or it might appear broken if this was an initial load failure.`);
+        // Optionally, you could set a fallback placeholder image here:
+        // setPreviewImage(\'/path/to/placeholder-image.jpg\');
+        // setImageKey(prevKey => prevKey + 1);
+      };
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeServiceId]); // Removed previewImage from dependencies to avoid loop with key change
+  }, [activeServiceId, previewImage]); // Added previewImage to dependency array for correctness
 
   return (
     <section ref={ref} id={props.id || "services"} className="services bg-brand-beige-light py-20 md:py-32 px-6">
